@@ -63,7 +63,7 @@ use OpenApi\Attributes as OA;
         ],
         externalDocs: new OA\ExternalDocumentation(
             description: "BoostCast on GitHub",
-            url: "https://github.com/boostmn/boostcast"
+            url: "https://github.com/boostmn/boostcast-mmart"
         )
     ),
     OA\Parameter(

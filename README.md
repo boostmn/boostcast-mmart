@@ -63,7 +63,7 @@ cd /var/azuracast
 
 Download the BoostCast docker image
 ```
-curl -fsSL https://raw.githubusercontent.com/boostmn/boostcast/main/docker.sh > docker.sh
+curl -fsSL https://raw.githubusercontent.com/boostmn/boostcast-mmart/main/docker.sh > docker.sh
 ```
 
 Follow our **[installation guide](https://docs.azuracast.com/en/getting-started/installation)** for instructions on how
