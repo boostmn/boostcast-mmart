@@ -111,6 +111,7 @@ ENV TZ="UTC" \
     MYSQL_USER="azuracast" \
     MYSQL_PASSWORD="IUGBsdjfG6c6Qi8" \
     MYSQL_DATABASE="azuracast" \
+    MYSQL_RANDOM_ROOT_PASSWORD="yes" \
     ENABLE_REDIS="true" \
     REDIS_HOST="localhost" \
     REDIS_PORT=6379 \
