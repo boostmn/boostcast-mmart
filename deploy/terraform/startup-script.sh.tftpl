@@ -1,0 +1,28 @@
+#!/bin/bash
+# Installs Docker and launches BoostCast on first boot of the VM.
+set -euo pipefail
+
+# Install Docker (idempotent; re-running is a no-op once installed)
+if ! command -v docker >/dev/null 2>&1; then
+  curl -fsSL https://get.docker.com | sh
+fi
+
+# Only create the container if it doesn't already exist
+if ! docker inspect boostcast-mmart >/dev/null 2>&1; then
+  LE_ARGS=""
+  if [ -n "${domain}" ]; then
+    LE_ARGS="-e LETSENCRYPT_HOST=${domain} -e LETSENCRYPT_EMAIL=${letsencrypt_email}"
+  fi
+
+  docker pull ${image}
+  docker run -d --name boostcast-mmart \
+    -p 80:80 -p 443:443 -p 2022:2022 -p 8000-8500:8000-8500 \
+    -e MYSQL_PASSWORD='${mysql_password}' \
+    $LE_ARGS \
+    -v boostcast_mmart_db:/var/lib/mysql \
+    -v boostcast_mmart_uploads:/var/azuracast/uploads \
+    -v boostcast_mmart_stations:/var/azuracast/stations \
+    -v boostcast_mmart_backups:/var/azuracast/backups \
+    --restart unless-stopped \
+    ${image}
+fi

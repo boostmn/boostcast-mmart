@@ -1,0 +1,10 @@
+# Local state (may contain secrets) and backups
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+
+# Real variable values (secrets) — keep only terraform.tfvars.example committed
+terraform.tfvars
+*.auto.tfvars
+crash.log
