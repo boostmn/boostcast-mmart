@@ -4,7 +4,7 @@
             <div class="card-body">
                 <div class="card-title">
                     <img
-                        src="/static/img/dc-radio.png"
+                        src="/static/img/m-mart-dark.png"
                         height="16"
                         alt="Public Player"
                     >
